@@ -1,0 +1,43 @@
+# ---- Python ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# ---- Secrets ----
+.env
+*.key
+
+# ---- ML model artifacts ----
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.arrow
+
+# ---- Data / numeric outputs ----
+*.npz
+*.pdf
+
+# Images: ignore generated figures, keep the project logo
+*.png
+!logo.png
+
+# CSVs: ignore result CSVs, keep small input QA datasets
+*.csv
+!attack/hp_qa_en*.csv
+!evaluation/hp_qa_en*.csv
+
+# ---- Output / results directories ----
+results/
+result/
+evaluation/results/
+attack/attack_outputs/
+attack/*_adapter/
+attack/*_adapter_step*/
+
+# ---- OS ----
+.DS_Store
