@@ -117,6 +117,7 @@ def load_base_and_tokenizer(
     tokenizer.padding_side = "left"
     base = AutoModelForCausalLM.from_pretrained(
         model_name, torch_dtype=_resolve_dtype(dtype_name),
+        use_safetensors=True,  # repo ships both .bin and .safetensors; only pull one
     )
     base.to(device)
     return base, tokenizer
