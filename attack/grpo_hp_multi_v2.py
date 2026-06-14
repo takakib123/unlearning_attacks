@@ -120,7 +120,7 @@ class Config:
     n_eval_samples: int = 128
     # --- Fix 2: monitor n bumped, M_bin removed from progress CSV ---
     n_monitor_samples: int = 64
-    eval_every: int = 50
+    eval_every: int = 10
     eval_batch: int = 32
 
     # I/O
