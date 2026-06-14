@@ -158,6 +158,18 @@ def main():
     cfg = parse_args()
     set_seed(cfg.seed)
 
+    # --- HuggingFace login (gated Llama-2 repos) ---
+    hf_token = (os.environ.get("HF_TOKEN")
+                or os.environ.get("HUGGING_FACE_HUB_TOKEN")
+                or os.environ.get("HUGGINGFACE_TOKEN"))
+    if hf_token:
+        from huggingface_hub import login
+        login(token=hf_token)
+        print("Logged in to HuggingFace Hub via env token.")
+    else:
+        print("WARNING: no HF token in env (HF_TOKEN/HUGGING_FACE_HUB_TOKEN); "
+              "gated model downloads may fail.")
+
     if cfg.device == "cuda" and not torch.cuda.is_available():
         print("WARNING: CUDA not available, falling back to CPU.")
         cfg.device = "cpu"
