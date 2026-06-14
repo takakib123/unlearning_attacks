@@ -56,6 +56,9 @@ from grpo_core import (
     load_base_and_tokenizer, load_dataset, policy_forward_with_kl,
     print_aggregate, sample_rollouts, split_q_f_q_held, write_eval_csv,
 )
+from grpo_vllm_eval import (
+    build_vllm_engine, evaluate_question_set_vllm, make_lora_request,
+)
 
 
 # =====================================================================
@@ -123,6 +126,11 @@ class Config:
     eval_every: int = 10
     eval_batch: int = 32
 
+    # --- vLLM eval backend (faster batched eval; needs a 2nd model copy on GPU) ---
+    use_vllm_eval: bool = False
+    vllm_gpu_mem_util: float = 0.40   # fraction of total GPU mem for the vLLM engine
+    vllm_max_model_len: int = 512     # prompt (~50) + max_new_tokens + margin
+
     # I/O
     log_dir: str = "."
     save_adapter: bool = True
@@ -136,10 +144,17 @@ def out_path(cfg: Config, suffix: str) -> str:
 def parse_args() -> Config:
     cfg = Config()
     parser = argparse.ArgumentParser()
+    # `from __future__ import annotations` makes f.type a string (e.g. "int"),
+    # so normalize both string and real-type annotations to a concrete type.
+    type_map = {
+        "str": str, "int": int, "float": float, "bool": bool,
+        str: str, int: int, float: float, bool: bool,
+    }
     for f in dataclasses.fields(cfg):
-        if f.type in (str, int, float):
-            parser.add_argument(f"--{f.name}", type=f.type, default=getattr(cfg, f.name))
-        elif f.type is bool:
+        ftype = type_map.get(f.type)
+        if ftype in (str, int, float):
+            parser.add_argument(f"--{f.name}", type=ftype, default=getattr(cfg, f.name))
+        elif ftype is bool:
             parser.add_argument(f"--{f.name}",
                                 type=lambda x: x.lower() == "true",
                                 default=getattr(cfg, f.name))
@@ -209,11 +224,31 @@ def main():
         tokenizer, q_f_rest, cfg.question_start_tag, cfg.question_end_tag, cfg.device,
     )
 
+    # --- Eval backend dispatch (HF generate vs. batched vLLM) ---
+    # The vLLM path runs a second engine alongside the HF training model and
+    # hot-swaps the live LoRA adapter in each eval (save -> fresh LoRARequest).
+    vllm_state = {"engine": None, "lora_id": 0}
+
+    def eval_set(encodings, n_samples, label=""):
+        if not cfg.use_vllm_eval:
+            return evaluate_question_set(model, tokenizer, cfg, encodings, n_samples, label=label)
+        if not encodings:
+            return []
+        if vllm_state["engine"] is None:
+            print(f"\nBuilding vLLM eval engine "
+                  f"(gpu_mem_util={cfg.vllm_gpu_mem_util}, max_lora_rank={cfg.lora_rank})...")
+            vllm_state["engine"] = build_vllm_engine(cfg)
+        vllm_state["lora_id"] += 1
+        lreq = make_lora_request(model, out_path(cfg, "vllm_adapter_tmp"), vllm_state["lora_id"])
+        return evaluate_question_set_vllm(
+            vllm_state["engine"], cfg, encodings, n_samples, lora_request=lreq, label=label,
+        )
+
     # --- Pre-attack eval (rigorous, n=cfg.n_eval_samples) ---
     print(f"\nPre-attack evaluation (n={cfg.n_eval_samples}/question)...")
-    pre_q_f = evaluate_question_set(model, tokenizer, cfg, enc_q_f, cfg.n_eval_samples, label="pre Q_F")
-    pre_q_held = evaluate_question_set(model, tokenizer, cfg, enc_q_held, cfg.n_eval_samples, label="pre Q_held")
-    pre_q_f_rest = evaluate_question_set(model, tokenizer, cfg, enc_q_f_rest, cfg.n_eval_samples, label="pre Q_F_rest") \
+    pre_q_f = eval_set(enc_q_f, cfg.n_eval_samples, label="pre Q_F")
+    pre_q_held = eval_set(enc_q_held, cfg.n_eval_samples, label="pre Q_held")
+    pre_q_f_rest = eval_set(enc_q_f_rest, cfg.n_eval_samples, label="pre Q_F_rest") \
         if enc_q_f_rest else []
 
     write_eval_csv(out_path(cfg, "eval_pre_qf.csv"), pre_q_f)
@@ -256,8 +291,8 @@ def main():
 
     # --- Step-0 monitor row at the SAME n as later monitor rows (apples-to-apples) ---
     print(f"\nStep-0 monitor eval (n={cfg.n_monitor_samples}/question)...")
-    mon0_held = evaluate_question_set(model, tokenizer, cfg, enc_q_held, cfg.n_monitor_samples)
-    mon0_qf = evaluate_question_set(model, tokenizer, cfg, enc_q_f, cfg.n_monitor_samples)
+    mon0_held = eval_set(enc_q_held, cfg.n_monitor_samples)
+    mon0_qf = eval_set(enc_q_f, cfg.n_monitor_samples)
     agg0_held = aggregate(mon0_held)
     agg0_qf = aggregate(mon0_qf)
     progress_writer.writerow([
@@ -435,8 +470,8 @@ def main():
 
         # --- Periodic monitor eval (n=cfg.n_monitor_samples; p_hat only) ---
         if (step + 1) % cfg.eval_every == 0:
-            mon_held = evaluate_question_set(model, tokenizer, cfg, enc_q_held, cfg.n_monitor_samples)
-            mon_qf = evaluate_question_set(model, tokenizer, cfg, enc_q_f, cfg.n_monitor_samples)
+            mon_held = eval_set(enc_q_held, cfg.n_monitor_samples)
+            mon_qf = eval_set(enc_q_f, cfg.n_monitor_samples)
             agg_held = aggregate(mon_held)
             agg_qf = aggregate(mon_qf)
             progress_writer.writerow([
@@ -463,9 +498,9 @@ def main():
     # --- Post-attack eval ---
     print(f"\nStopped at step {stopped_at} (reason: {stop_reason}).")
     print(f"\nPost-attack evaluation (n={cfg.n_eval_samples}/question)...")
-    post_q_f = evaluate_question_set(model, tokenizer, cfg, enc_q_f, cfg.n_eval_samples, label="post Q_F")
-    post_q_held = evaluate_question_set(model, tokenizer, cfg, enc_q_held, cfg.n_eval_samples, label="post Q_held")
-    post_q_f_rest = evaluate_question_set(model, tokenizer, cfg, enc_q_f_rest, cfg.n_eval_samples, label="post Q_F_rest") \
+    post_q_f = eval_set(enc_q_f, cfg.n_eval_samples, label="post Q_F")
+    post_q_held = eval_set(enc_q_held, cfg.n_eval_samples, label="post Q_held")
+    post_q_f_rest = eval_set(enc_q_f_rest, cfg.n_eval_samples, label="post Q_F_rest") \
         if enc_q_f_rest else []
 
     write_eval_csv(out_path(cfg, "eval_post_qf.csv"), post_q_f)
