@@ -43,6 +43,7 @@ import os
 import random
 import time
 from dataclasses import dataclass
+from datetime import date
 from typing import Tuple
 
 import numpy as np
@@ -89,15 +90,15 @@ class Config:
     lora_dropout: float = 0.0
     lora_target_modules: Tuple[str, ...] = ("q_proj", "v_proj")
 
-    # Sampling
+    # Sampling (matched to evaluation/hp_qa_eval.py)
     group_size: int = 8
-    max_new_tokens: int = 64
+    max_new_tokens: int = 128
     sampling_temperature: float = 1.0
     sampling_top_p: float = 0.9
 
     # GRPO
     num_outer_steps: int = 500
-    prompts_per_step: int = 4
+    prompts_per_step: int = 8
     ppo_epochs: int = 4
     clip_eps: float = 0.2
     kl_beta: float = 1e-2
@@ -141,6 +142,20 @@ def out_path(cfg: Config, suffix: str) -> str:
     return os.path.join(cfg.log_dir, f"{stem}_{suffix}")
 
 
+def write_perq_progress_rows(writer, step: int, set_label: str, results: list[dict]):
+    """Append per-question periodic-eval rows (incl. Sn and M_bin) to the
+    per-question progress CSV. One row per question, tagged with the outer step.
+
+    Format: {question_idx, step, <per-question results as in write_eval_csv>}.
+    """
+    for r in results:
+        writer.writerow([
+            r["question_idx"], step, set_label, r["question"],
+            r["n"], r["s_n"], f"{r['p_hat']:.6f}", f"{r['m_bin']:.6f}",
+            int(r["greedy_leak"]), r["greedy_text"].replace("\n", " ")[:500],
+        ])
+
+
 def parse_args() -> Config:
     cfg = Config()
     parser = argparse.ArgumentParser()
@@ -172,6 +187,11 @@ def parse_args() -> Config:
 def main():
     cfg = parse_args()
     set_seed(cfg.seed)
+
+    # --- Route all results + logs into a dated experiment folder ---
+    cfg.log_dir = os.path.join(cfg.log_dir, f"experiment_{date.today().isoformat()}")
+    os.makedirs(cfg.log_dir, exist_ok=True)
+    print(f"Experiment output folder: {cfg.log_dir}")
 
     # --- HuggingFace login (gated Llama-2 repos) ---
     hf_token = (os.environ.get("HF_TOKEN")
@@ -289,6 +309,14 @@ def main():
         "qf_mean_phat", "qf_frac_greedy_leak",
     ])
 
+    # --- Per-question periodic eval (Sn + M_bin for every question, each step) ---
+    perq_log = open(out_path(cfg, "eval_progress_perq.csv"), "w", newline="")
+    perq_writer = csv.writer(perq_log)
+    perq_writer.writerow([
+        "question_idx", "outer_step", "set", "question",
+        "n_samples", "s_n", "p_hat", "m_bin", "greedy_leak", "greedy_text",
+    ])
+
     # --- Step-0 monitor row at the SAME n as later monitor rows (apples-to-apples) ---
     print(f"\nStep-0 monitor eval (n={cfg.n_monitor_samples}/question)...")
     mon0_held = eval_set(enc_q_held, cfg.n_monitor_samples)
@@ -304,6 +332,9 @@ def main():
         f"{agg0_qf['frac_greedy_leak']:.6f}",
     ])
     progress_log.flush()
+    write_perq_progress_rows(perq_writer, 0, "Q_held", mon0_held)
+    write_perq_progress_rows(perq_writer, 0, "Q_F", mon0_qf)
+    perq_log.flush()
     print(f"  step 0 Q_held mean_p_hat={agg0_held['mean_p_hat']:.3f}  "
           f"Q_F mean_p_hat={agg0_qf['mean_p_hat']:.3f}")
 
@@ -483,6 +514,9 @@ def main():
                 f"{agg_qf['frac_greedy_leak']:.6f}",
             ])
             progress_log.flush()
+            write_perq_progress_rows(perq_writer, step + 1, "Q_held", mon_held)
+            write_perq_progress_rows(perq_writer, step + 1, "Q_F", mon_qf)
+            perq_log.flush()
             print(f"           monitor n={cfg.n_monitor_samples}  "
                   f"Q_held p_hat={agg_held['mean_p_hat']:.3f} (greedy={agg_held['frac_greedy_leak']:.2f})  "
                   f"Q_F p_hat={agg_qf['mean_p_hat']:.3f}")
@@ -494,6 +528,7 @@ def main():
 
     train_log.close()
     progress_log.close()
+    perq_log.close()
 
     # --- Post-attack eval ---
     print(f"\nStopped at step {stopped_at} (reason: {stop_reason}).")

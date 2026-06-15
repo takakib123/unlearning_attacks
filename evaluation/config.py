@@ -41,6 +41,23 @@ EXPERIMENTS = {
         "use_vllm":                True,
         "gpu_memory_utilization":  0.70,   # lower if other processes share the GPU
     },
+        "simnpo_forget05_attacked": {
+        "model":                   "OPTML-Group/SimNPO-TOFU-forget05-Llama-2-7b-chat",
+        "checkpoint":              None,
+        "tokenizer":               "meta-llama/Llama-2-7b-chat-hf",
+        "question_start_tag":      "[INST] ",
+        "question_end_tag":        " [/INST]",
+        "num_samples":             128,
+        "max_new_tokens":          128,
+        "top_p":                   0.9,
+        "temperature":             1.0,
+        "device":                  "cuda",
+        "dataset":                 "locuslab/TOFU",
+        "dataset_split":           "forget05",
+        # vLLM settings
+        "use_vllm":                True,
+        "gpu_memory_utilization":  0.70,   # lower if other processes share the GPU
+    },
     "grad_ascent_forget01": {
         "model":                   "locuslab/llama2-7b_grad_ascent_1e-05_forget01",
         "checkpoint":              "checkpoint-3",

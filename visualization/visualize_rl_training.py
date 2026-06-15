@@ -28,7 +28,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 HERE = Path(__file__).resolve().parent
-DEFAULT_LOG = HERE.parent / "attack" / "grpo_hp_multi_q5_s0_train_log.csv"
+DEFAULT_LOG = HERE.parent / "attack" / "experiment_2026-06-14/grpo_hp_multi_q10_s0_train_log.csv"
 
 
 def aggregate(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:

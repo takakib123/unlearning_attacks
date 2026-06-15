@@ -50,6 +50,9 @@ def build_vllm_engine(cfg):
         enable_lora=True,
         max_lora_rank=cfg.lora_rank,
         max_loras=1,
+        # Opt-in (default off): skip CUDA-graph capture. Saves memory and avoids
+        # a common crash source when co-located with a resident training model.
+        enforce_eager=getattr(cfg, "vllm_enforce_eager", False),
     )
 
 
