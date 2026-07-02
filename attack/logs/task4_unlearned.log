@@ -1,0 +1,32 @@
+/home/biw23007/tanvir/LLM_unlearning/.venv/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[unlearned] loading OPTML-Group/SimNPO-TOFU-forget05-Llama-2-7b-chat rev=None on cuda:1
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 129.74it/s]
+[unlearned] eval Q_F (50q, n=128) ...
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+  [unlearned Q_F] 10/50 elapsed 87s eta 346s
+  [unlearned Q_F] 20/50 elapsed 211s eta 316s
+  [unlearned Q_F] 30/50 elapsed 350s eta 233s
+  [unlearned Q_F] 40/50 elapsed 460s eta 115s
+  [unlearned Q_F] 50/50 elapsed 582s eta 0s
+[unlearned] eval Q_held (150q, n=128) ...
+  [unlearned Q_held] 10/150 elapsed 96s eta 1349s
+  [unlearned Q_held] 20/150 elapsed 186s eta 1208s
+  [unlearned Q_held] 30/150 elapsed 287s eta 1147s
+  [unlearned Q_held] 40/150 elapsed 400s eta 1099s
+  [unlearned Q_held] 50/150 elapsed 496s eta 991s
+  [unlearned Q_held] 60/150 elapsed 610s eta 915s
+  [unlearned Q_held] 70/150 elapsed 720s eta 822s
+  [unlearned Q_held] 80/150 elapsed 850s eta 743s
+  [unlearned Q_held] 90/150 elapsed 996s eta 664s
+  [unlearned Q_held] 100/150 elapsed 1100s eta 550s
+  [unlearned Q_held] 110/150 elapsed 1204s eta 438s
+  [unlearned Q_held] 120/150 elapsed 1331s eta 333s
+  [unlearned Q_held] 130/150 elapsed 1431s eta 220s
+  [unlearned Q_held] 140/150 elapsed 1559s eta 111s
+  [unlearned Q_held] 150/150 elapsed 1688s eta 0s
+
+===== TASK 4 PRE-EVAL AGGREGATES [unlearned] =====
+  [unlearned Q_F] n= 50  p_hat=0.253  M_bin mean=0.309 med=0.105  M_mu=0.345  M_sigma=0.359  greedy=0.220  gROUGE=0.228
+  [unlearned Q_held] n=150  p_hat=0.248  M_bin mean=0.305 med=0.094  M_mu=0.376  M_sigma=0.358  greedy=0.280  gROUGE=0.268
+CSVs: experiment_2026-07-01/task4_pre_unlearned_qf.csv | experiment_2026-07-01/task4_pre_unlearned_qheld.csv

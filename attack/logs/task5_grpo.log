@@ -1,0 +1,205 @@
+/home/biw23007/tanvir/LLM_unlearning/.venv/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+|Q_F|=50 |Q_held|=150
+Loading OPTML-Group/SimNPO-TOFU-forget05-Llama-2-7b-chat on cuda:0 + fresh LoRA r8
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 28.10it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 28.07it/s]
+trainable params: 4,194,304 || all params: 6,742,609,920 || trainable%: 0.0622
+[step   0] mean_r=0.297 (sat=6/8) pg=-0.1209 kl=0.0153 clip=0.08 grad=0.173
+[step   1] mean_r=0.203 (sat=5/8) pg=-0.1983 kl=0.0058 clip=0.07 grad=0.217
+[step   2] mean_r=0.250 (sat=3/8) pg=-0.0111 kl=0.0052 clip=0.03 grad=0.252
+[step   3] mean_r=0.156 (sat=6/8) pg=-0.0214 kl=0.0068 clip=0.02 grad=0.217
+[step   4] mean_r=0.172 (sat=5/8) pg=-0.5052 kl=0.0237 clip=0.14 grad=0.373
+[step   5] mean_r=0.391 (sat=5/8) pg=-0.0224 kl=0.0532 clip=0.08 grad=0.303
+[step   6] mean_r=0.375 (sat=3/8) pg=+0.1226 kl=0.0760 clip=0.07 grad=0.325
+[step   7] mean_r=0.125 (sat=6/8) pg=-0.0060 kl=0.0213 clip=0.05 grad=0.265
+[step   8] mean_r=0.344 (sat=5/8) pg=+0.0014 kl=0.0613 clip=0.16 grad=0.381
+[step   9] mean_r=0.703 (sat=5/8) pg=-0.0602 kl=0.0523 clip=0.08 grad=0.381
+[step  10] mean_r=0.594 (sat=6/8) pg=-0.1756 kl=0.0870 clip=0.18 grad=0.236
+[step  11] mean_r=0.453 (sat=5/8) pg=-0.1110 kl=0.0680 clip=0.05 grad=0.373
+[step  12] mean_r=0.531 (sat=7/8) pg=-0.1619 kl=0.0586 clip=0.10 grad=0.315
+[step  13] mean_r=0.375 ALL SATURATED
+[step  14] mean_r=0.297 (sat=5/8) pg=-0.1913 kl=0.1134 clip=0.11 grad=0.371
+[step  15] mean_r=0.250 ALL SATURATED
+[step  16] mean_r=0.562 (sat=4/8) pg=+0.1232 kl=0.1399 clip=0.09 grad=0.335
+[step  17] mean_r=0.578 (sat=5/8) pg=-0.0320 kl=0.1175 clip=0.11 grad=0.350
+[step  18] mean_r=0.250 ALL SATURATED
+[step  19] mean_r=0.281 (sat=5/8) pg=-0.0183 kl=0.1410 clip=0.02 grad=0.343
+[step  20] mean_r=0.312 (sat=6/8) pg=-0.1499 kl=0.1409 clip=0.13 grad=0.448
+[step  21] mean_r=0.531 (sat=6/8) pg=-0.2948 kl=0.3113 clip=0.17 grad=0.373
+[step  22] mean_r=0.531 (sat=7/8) pg=-0.1871 kl=0.1580 clip=0.13 grad=0.294
+[step  23] mean_r=0.344 (sat=5/8) pg=-0.1302 kl=0.1911 clip=0.10 grad=0.313
+[step  24] mean_r=0.531 (sat=5/8) pg=+0.1449 kl=0.2466 clip=0.12 grad=0.302
+[step  25] mean_r=0.531 (sat=7/8) pg=-0.2831 kl=0.2278 clip=0.11 grad=0.304
+[step  26] mean_r=0.609 (sat=7/8) pg=+0.0147 kl=0.6022 clip=0.16 grad=0.529
+[step  27] mean_r=0.391 (sat=7/8) pg=-0.0749 kl=0.3275 clip=0.15 grad=0.359
+[step  28] mean_r=0.234 (sat=4/8) pg=-0.1445 kl=0.2787 clip=0.11 grad=0.367
+[step  29] mean_r=0.391 (sat=7/8) pg=+0.0918 kl=0.5027 clip=0.12 grad=0.288
+[step  30] mean_r=0.375 ALL SATURATED
+[step  31] mean_r=0.578 (sat=4/8) pg=+0.0379 kl=0.3567 clip=0.17 grad=0.302
+[step  32] mean_r=0.781 (sat=7/8) pg=-0.0356 kl=0.2325 clip=0.13 grad=0.373
+[step  33] mean_r=0.594 (sat=6/8) pg=+0.0154 kl=0.3244 clip=0.15 grad=0.449
+[step  34] mean_r=0.484 (sat=6/8) pg=-0.2016 kl=0.3226 clip=0.13 grad=0.392
+[step  35] mean_r=1.000 ALL SATURATED
+[step  36] mean_r=0.578 (sat=5/8) pg=-0.2999 kl=0.3769 clip=0.05 grad=0.197
+[step  37] mean_r=0.219 (sat=7/8) pg=-0.1587 kl=0.2447 clip=0.15 grad=0.354
+[step  38] mean_r=0.719 (sat=6/8) pg=-0.0122 kl=0.3388 clip=0.03 grad=0.268
+[step  39] mean_r=0.531 (sat=7/8) pg=+0.0126 kl=0.2495 clip=0.09 grad=0.262
+[step  40] mean_r=0.578 (sat=6/8) pg=+0.2774 kl=0.6941 clip=0.10 grad=0.391
+[step  41] mean_r=0.422 (sat=6/8) pg=-0.1946 kl=0.3750 clip=0.05 grad=0.290
+[step  42] mean_r=0.500 ALL SATURATED
+[step  43] mean_r=0.203 (sat=5/8) pg=-0.1050 kl=0.4498 clip=0.06 grad=0.304
+[step  44] mean_r=0.500 ALL SATURATED
+[step  45] mean_r=0.516 (sat=5/8) pg=-0.2037 kl=0.5053 clip=0.13 grad=0.341
+[step  46] mean_r=0.609 (sat=7/8) pg=-0.0952 kl=0.3116 clip=0.11 grad=0.331
+[step  47] mean_r=0.688 (sat=7/8) pg=-0.0399 kl=0.4637 clip=0.17 grad=0.380
+[step  48] mean_r=0.688 (sat=7/8) pg=-0.0467 kl=0.4549 clip=0.15 grad=0.346
+[step  49] mean_r=0.625 (sat=6/8) pg=-0.0201 kl=0.3751 clip=0.07 grad=0.339
+[step  50] mean_r=0.719 (sat=6/8) pg=-0.1457 kl=0.3355 clip=0.08 grad=0.275
+[step  51] mean_r=0.594 (sat=6/8) pg=-0.0122 kl=0.2648 clip=0.04 grad=0.256
+[step  52] mean_r=0.344 (sat=6/8) pg=-0.0380 kl=0.5000 clip=0.08 grad=0.323
+[step  53] mean_r=0.375 ALL SATURATED
+[step  54] mean_r=0.594 (sat=7/8) pg=-0.0940 kl=0.3338 clip=0.10 grad=0.303
+[step  55] mean_r=0.453 (sat=4/8) pg=-0.0037 kl=0.4235 clip=0.06 grad=0.301
+[step  56] mean_r=0.500 ALL SATURATED
+[step  57] mean_r=0.562 (sat=6/8) pg=-0.0294 kl=0.4751 clip=0.08 grad=0.303
+[step  58] mean_r=0.484 (sat=5/8) pg=-0.0654 kl=0.4818 clip=0.09 grad=0.363
+[step  59] mean_r=0.641 (sat=6/8) pg=+0.0251 kl=0.4339 clip=0.05 grad=0.229
+[step  60] mean_r=0.594 (sat=7/8) pg=+0.0246 kl=0.3959 clip=0.13 grad=0.348
+[step  61] mean_r=0.625 ALL SATURATED
+[step  62] mean_r=0.359 (sat=7/8) pg=-0.1265 kl=0.6515 clip=0.18 grad=0.465
+[step  63] mean_r=0.516 (sat=6/8) pg=+0.0002 kl=0.4915 clip=0.12 grad=0.399
+[step  64] mean_r=0.500 ALL SATURATED
+[step  65] mean_r=0.375 (sat=5/8) pg=-0.0654 kl=0.4419 clip=0.07 grad=0.302
+[step  66] mean_r=0.516 (sat=5/8) pg=-0.0852 kl=0.5995 clip=0.10 grad=0.350
+[step  67] mean_r=0.594 (sat=5/8) pg=-0.2384 kl=0.5833 clip=0.08 grad=0.398
+[step  68] mean_r=0.484 (sat=6/8) pg=-0.3114 kl=0.5100 clip=0.07 grad=0.321
+[step  69] mean_r=0.719 (sat=6/8) pg=-0.0128 kl=0.3923 clip=0.04 grad=0.242
+[step  70] mean_r=0.766 (sat=6/8) pg=-0.0141 kl=0.4126 clip=0.05 grad=0.290
+[step  71] mean_r=0.688 (sat=6/8) pg=+0.0569 kl=0.3904 clip=0.12 grad=0.307
+[step  72] mean_r=0.625 ALL SATURATED
+[step  73] mean_r=0.656 (sat=5/8) pg=-0.0241 kl=0.6077 clip=0.05 grad=0.356
+[step  74] mean_r=0.625 ALL SATURATED
+[step  75] mean_r=0.516 (sat=7/8) pg=-0.1225 kl=0.5092 clip=0.12 grad=0.273
+[step  76] mean_r=0.672 (sat=6/8) pg=-0.0287 kl=0.6320 clip=0.11 grad=0.384
+[step  77] mean_r=0.516 (sat=5/8) pg=+0.0365 kl=0.5770 clip=0.06 grad=0.291
+[step  78] mean_r=0.609 (sat=5/8) pg=+0.0885 kl=0.5046 clip=0.12 grad=0.332
+[step  79] mean_r=0.656 (sat=6/8) pg=-0.0330 kl=0.6360 clip=0.13 grad=0.449
+[step  80] mean_r=0.750 (sat=5/8) pg=-0.0703 kl=0.7216 clip=0.08 grad=0.278
+[step  81] mean_r=0.500 (sat=5/8) pg=-0.0187 kl=0.6396 clip=0.06 grad=0.257
+[step  82] mean_r=0.500 ALL SATURATED
+[step  83] mean_r=0.250 ALL SATURATED
+[step  84] mean_r=0.688 (sat=7/8) pg=-0.0281 kl=0.7675 clip=0.13 grad=0.326
+[step  85] mean_r=0.484 (sat=7/8) pg=-0.0194 kl=0.6356 clip=0.10 grad=0.289
+[step  86] mean_r=0.453 (sat=7/8) pg=-0.0770 kl=0.8043 clip=0.15 grad=0.381
+[step  87] mean_r=0.547 (sat=6/8) pg=-0.1016 kl=0.8433 clip=0.11 grad=0.388
+[step  88] mean_r=0.672 (sat=6/8) pg=+0.0038 kl=0.4486 clip=0.06 grad=0.316
+[step  89] mean_r=0.594 (sat=7/8) pg=-0.0260 kl=0.5044 clip=0.14 grad=0.476
+[step  90] mean_r=0.578 (sat=6/8) pg=-0.0293 kl=0.5974 clip=0.11 grad=0.378
+[step  91] mean_r=0.469 (sat=4/8) pg=-0.0810 kl=0.1911 clip=0.05 grad=0.351
+[step  92] mean_r=0.375 (sat=6/8) pg=-0.1256 kl=0.7118 clip=0.12 grad=0.300
+[step  93] mean_r=0.641 (sat=6/8) pg=+0.0970 kl=0.7421 clip=0.10 grad=0.436
+[step  94] mean_r=0.766 (sat=6/8) pg=-0.0300 kl=0.8074 clip=0.11 grad=0.373
+[step  95] mean_r=0.688 (sat=5/8) pg=-0.0156 kl=0.6074 clip=0.08 grad=0.274
+[step  96] mean_r=0.703 (sat=5/8) pg=-0.0149 kl=0.7173 clip=0.04 grad=0.340
+[step  97] mean_r=0.750 ALL SATURATED
+[step  98] mean_r=0.250 ALL SATURATED
+[step  99] mean_r=0.719 (sat=6/8) pg=-0.0223 kl=0.5259 clip=0.07 grad=0.392
+[step 100] mean_r=0.453 (sat=6/8) pg=-0.0290 kl=0.7852 clip=0.12 grad=0.508
+[step 101] mean_r=0.406 (sat=6/8) pg=-0.1142 kl=0.4144 clip=0.08 grad=0.325
+[step 102] mean_r=0.641 (sat=7/8) pg=-0.0250 kl=0.8541 clip=0.15 grad=0.327
+[step 103] mean_r=0.547 (sat=6/8) pg=-0.1588 kl=0.6152 clip=0.10 grad=0.316
+[step 104] mean_r=0.547 (sat=6/8) pg=-0.0316 kl=0.8389 clip=0.13 grad=0.395
+[step 105] mean_r=0.500 ALL SATURATED
+[step 106] mean_r=0.328 (sat=7/8) pg=-0.0015 kl=0.3581 clip=0.11 grad=0.386
+[step 107] mean_r=0.469 (sat=6/8) pg=-0.1925 kl=0.9175 clip=0.14 grad=0.319
+[step 108] mean_r=0.594 (sat=6/8) pg=-0.1774 kl=0.5040 clip=0.07 grad=0.265
+[step 109] mean_r=0.359 (sat=6/8) pg=-0.1104 kl=0.7912 clip=0.11 grad=0.384
+[step 110] mean_r=0.281 (sat=7/8) pg=-0.0668 kl=0.7785 clip=0.15 grad=0.424
+[step 111] mean_r=0.438 (sat=7/8) pg=-0.0505 kl=0.6206 clip=0.13 grad=0.409
+[step 112] mean_r=0.766 (sat=6/8) pg=-0.0225 kl=0.6815 clip=0.09 grad=0.384
+[step 113] mean_r=0.719 (sat=4/8) pg=-0.1892 kl=0.6294 clip=0.07 grad=0.350
+[step 114] mean_r=0.578 (sat=4/8) pg=-0.0164 kl=0.6910 clip=0.05 grad=0.319
+[step 115] mean_r=0.578 (sat=7/8) pg=-0.0946 kl=0.6380 clip=0.17 grad=0.408
+[step 116] mean_r=0.422 (sat=7/8) pg=-0.0212 kl=0.6879 clip=0.13 grad=0.469
+[step 117] mean_r=0.484 (sat=7/8) pg=-0.0309 kl=0.8627 clip=0.16 grad=0.464
+[step 118] mean_r=0.469 (sat=6/8) pg=-0.0152 kl=0.6031 clip=0.08 grad=0.260
+[step 119] mean_r=0.594 (sat=7/8) pg=-0.0147 kl=0.7470 clip=0.05 grad=0.233
+[step 120] mean_r=0.344 (sat=7/8) pg=+0.1322 kl=0.7858 clip=0.14 grad=0.472
+[step 121] mean_r=0.594 (sat=6/8) pg=-0.0164 kl=0.7027 clip=0.09 grad=0.295
+[step 122] mean_r=0.859 (sat=7/8) pg=-0.0356 kl=0.8700 clip=0.12 grad=0.400
+[step 123] mean_r=0.609 (sat=7/8) pg=+0.0136 kl=0.4427 clip=0.10 grad=0.238
+[step 124] mean_r=0.688 (sat=6/8) pg=-0.0272 kl=0.6938 clip=0.12 grad=0.374
+[step 125] mean_r=0.578 (sat=6/8) pg=-0.0135 kl=0.7882 clip=0.05 grad=0.270
+[step 126] mean_r=0.734 (sat=7/8) pg=-0.0248 kl=0.8956 clip=0.11 grad=0.354
+[step 127] mean_r=0.797 (sat=7/8) pg=-0.0542 kl=0.7685 clip=0.15 grad=0.408
+[step 128] mean_r=0.516 (sat=4/8) pg=-0.0176 kl=0.6433 clip=0.04 grad=0.336
+[step 129] mean_r=0.703 (sat=7/8) pg=-0.0396 kl=0.8424 clip=0.17 grad=0.508
+[step 130] mean_r=0.453 (sat=6/8) pg=-0.0979 kl=0.5625 clip=0.10 grad=0.351
+[step 131] mean_r=0.703 (sat=5/8) pg=+0.0906 kl=0.6404 clip=0.06 grad=0.309
+[step 132] mean_r=0.672 (sat=7/8) pg=-0.0444 kl=1.0052 clip=0.20 grad=0.433
+[step 133] mean_r=0.625 ALL SATURATED
+[step 134] mean_r=0.641 (sat=5/8) pg=-0.0274 kl=0.8697 clip=0.11 grad=0.294
+[step 135] mean_r=0.609 (sat=7/8) pg=-0.0280 kl=0.6500 clip=0.13 grad=0.327
+[step 136] mean_r=0.875 (sat=4/8) pg=-0.0192 kl=0.6093 clip=0.06 grad=0.295
+[step 137] mean_r=0.578 (sat=7/8) pg=-0.0304 kl=0.6658 clip=0.13 grad=0.349
+[step 138] mean_r=0.609 (sat=6/8) pg=-0.0158 kl=0.6740 clip=0.08 grad=0.415
+[step 139] mean_r=0.578 (sat=6/8) pg=-0.0363 kl=0.9177 clip=0.12 grad=0.420
+[step 140] mean_r=0.859 (sat=7/8) pg=-0.2801 kl=0.7730 clip=0.11 grad=0.356
+[step 141] mean_r=0.641 (sat=6/8) pg=-0.0949 kl=0.5088 clip=0.08 grad=0.258
+[step 142] mean_r=0.859 (sat=7/8) pg=+0.0093 kl=0.8063 clip=0.10 grad=0.387
+[step 143] mean_r=0.609 (sat=7/8) pg=-0.0277 kl=0.9678 clip=0.12 grad=0.500
+[step 144] mean_r=0.609 (sat=7/8) pg=-0.0204 kl=0.5768 clip=0.10 grad=0.372
+[step 145] mean_r=0.359 (sat=7/8) pg=-0.0309 kl=1.0171 clip=0.16 grad=0.652
+[step 146] mean_r=0.859 (sat=7/8) pg=-0.0176 kl=0.7278 clip=0.10 grad=0.352
+[step 147] mean_r=0.453 (sat=7/8) pg=-0.0312 kl=1.0021 clip=0.17 grad=0.502
+[step 148] mean_r=0.859 (sat=7/8) pg=-0.0182 kl=0.7478 clip=0.10 grad=0.371
+[step 149] mean_r=0.859 (sat=7/8) pg=-0.0364 kl=1.2637 clip=0.17 grad=0.592
+
+Stopped at step 150 (max_steps). Post-eval (n=128)...
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+  [post Q_F] 10/50 elapsed 152s eta 609s
+  [post Q_F] 20/50 elapsed 308s eta 462s
+  [post Q_F] 30/50 elapsed 465s eta 310s
+  [post Q_F] 40/50 elapsed 623s eta 156s
+  [post Q_F] 50/50 elapsed 781s eta 0s
+  [post Q_held] 10/150 elapsed 152s eta 2124s
+  [post Q_held] 20/150 elapsed 310s eta 2015s
+  [post Q_held] 30/150 elapsed 466s eta 1865s
+  [post Q_held] 40/150 elapsed 620s eta 1706s
+  [post Q_held] 50/150 elapsed 770s eta 1541s
+  [post Q_held] 60/150 elapsed 926s eta 1389s
+  [post Q_held] 70/150 elapsed 1077s eta 1231s
+  [post Q_held] 80/150 elapsed 1234s eta 1080s
+  [post Q_held] 90/150 elapsed 1389s eta 926s
+  [post Q_held] 100/150 elapsed 1545s eta 773s
+  [post Q_held] 110/150 elapsed 1698s eta 618s
+  [post Q_held] 120/150 elapsed 1856s eta 464s
+  [post Q_held] 130/150 elapsed 2014s eta 310s
+  [post Q_held] 140/150 elapsed 2173s eta 155s
+  [post Q_held] 150/150 elapsed 2330s eta 0s
+
+======================================================================
+TASK 5 PRE->POST DELTAS
+======================================================================
+  [PRE  Q_F] n= 50  p_hat=0.253  M_bin mean=0.309 med=0.105  M_mu=0.345  M_sigma=0.359  greedy=0.220  gROUGE=0.228
+  [POST Q_F] n= 50  p_hat=0.639  M_bin mean=0.662 med=0.990  M_mu=0.447  M_sigma=0.338  greedy=0.620  gROUGE=0.361
+  [PRE  Q_held] n=150  p_hat=0.248  M_bin mean=0.305 med=0.094  M_mu=0.376  M_sigma=0.358  greedy=0.280  gROUGE=0.268
+  [POST Q_held] n=150  p_hat=0.398  M_bin mean=0.457 med=0.350  M_mu=0.463  M_sigma=0.343  greedy=0.393  gROUGE=0.364
+
+  Q_F (trained): n=50
+    p_hat        0.253 -> 0.639  (+0.385)
+    M_bin(mean)  0.309 -> 0.662  (+0.353)
+    M_bin(med)   0.105 -> 0.990  (+0.885)
+    M_mu         0.345 -> 0.447  (+0.102)
+    greedy       0.220 -> 0.620  (+0.400)
+    greedy-vs-prob gap (M_bin - greedy): 0.089 -> 0.042  (-0.047)
+
+  Q_held (generalization): n=150
+    p_hat        0.248 -> 0.398  (+0.150)
+    M_bin(mean)  0.305 -> 0.457  (+0.152)
+    M_bin(med)   0.094 -> 0.350  (+0.256)
+    M_mu         0.376 -> 0.463  (+0.087)
+    greedy       0.280 -> 0.393  (+0.113)
+    greedy-vs-prob gap (M_bin - greedy): 0.025 -> 0.063  (+0.039)
+
+Saved adapter to experiment_2026-07-01/task5_adapter

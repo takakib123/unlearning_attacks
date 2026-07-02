@@ -1,0 +1,5 @@
+/home/biw23007/tanvir/LLM_unlearning/.venv/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 137.25it/s]
+augmented experiment_2026-07-01/task4_pre_base_qf.csv with ES (50 rows)
+augmented experiment_2026-07-01/task4_pre_base_qheld.csv with ES (150 rows)

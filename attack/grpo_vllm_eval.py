@@ -24,6 +24,7 @@ so ``aggregate`` / ``write_eval_csv`` / ``print_aggregate`` all work unchanged.
 
 from __future__ import annotations
 
+import os
 import time
 from typing import List, Optional
 
@@ -35,25 +36,43 @@ def build_vllm_engine(cfg):
 
     Reads cfg attributes:
         model_name, tokenizer_name, lora_rank,
-        vllm_gpu_mem_util, vllm_max_model_len
+        vllm_gpu_mem_util, vllm_max_model_len, vllm_gpu
+
+    Pins the engine to its own GPU (``cfg.vllm_gpu``), separate from the
+    resident HF training model on ``cfg.train_gpu``. vLLM v1 runs its worker
+    in a spawned subprocess, so temporarily restricting CUDA_VISIBLE_DEVICES
+    around construction confines the engine (and its KV cache + 2nd base copy)
+    to that single physical GPU. The parent's training CUDA context was already
+    initialized on ``cfg.train_gpu`` and is unaffected; we restore the env after.
     """
     from vllm import LLM
 
-    return LLM(
-        model=cfg.model_name,
-        tokenizer=cfg.tokenizer_name,
-        tokenizer_mode="auto",
-        trust_remote_code=False,
-        dtype="auto",                       # bf16 on A100, fp16 elsewhere
-        max_model_len=cfg.vllm_max_model_len,
-        gpu_memory_utilization=cfg.vllm_gpu_mem_util,
-        enable_lora=True,
-        max_lora_rank=cfg.lora_rank,
-        max_loras=1,
-        # Opt-in (default off): skip CUDA-graph capture. Saves memory and avoids
-        # a common crash source when co-located with a resident training model.
-        enforce_eager=getattr(cfg, "vllm_enforce_eager", False),
-    )
+    vllm_gpu = getattr(cfg, "vllm_gpu", None)
+    prev_cvd = os.environ.get("CUDA_VISIBLE_DEVICES")
+    if vllm_gpu is not None:
+        os.environ["CUDA_VISIBLE_DEVICES"] = str(vllm_gpu)
+    try:
+        return LLM(
+            model=cfg.model_name,
+            tokenizer=cfg.tokenizer_name,
+            tokenizer_mode="auto",
+            trust_remote_code=False,
+            dtype="auto",                       # bf16 on A100, fp16 elsewhere
+            max_model_len=cfg.vllm_max_model_len,
+            gpu_memory_utilization=cfg.vllm_gpu_mem_util,
+            enable_lora=True,
+            max_lora_rank=cfg.lora_rank,
+            max_loras=1,
+            # Opt-in (default off): skip CUDA-graph capture. Saves memory and avoids
+            # a common crash source when co-located with a resident training model.
+            enforce_eager=getattr(cfg, "vllm_enforce_eager", False),
+        )
+    finally:
+        if vllm_gpu is not None:
+            if prev_cvd is None:
+                os.environ.pop("CUDA_VISIBLE_DEVICES", None)
+            else:
+                os.environ["CUDA_VISIBLE_DEVICES"] = prev_cvd
 
 
 def make_lora_request(model, adapter_dir: str, lora_id: int):

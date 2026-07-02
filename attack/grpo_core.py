@@ -45,7 +45,11 @@ class Item:
 def load_dataset(qa_csv_path: str) -> List[Item]:
     items: List[Item] = []
     with open(qa_csv_path, newline="") as f:
-        reader = csv.DictReader(f)
+        # CSV uses ", " (space after delimiter), so skipinitialspace is required;
+        # without it the leading space before each opening quote makes csv treat
+        # the Affirmative Response / Key Words fields as unquoted, splitting on
+        # their embedded commas and misaligning the columns.
+        reader = csv.DictReader(f, skipinitialspace=True)
         for idx, row in enumerate(reader):
             kws = [k.strip() for k in row.get("Key Words", "").split(",") if k.strip()]
             items.append(Item(
@@ -96,6 +100,17 @@ def keyword_reward(text: str, keywords: List[str]) -> float:
     return 0.0
 
 
+def keyword_reward_count(text: str, keywords: List[str]) -> float:
+    """Training-only reward: +1 for each distinct ground-truth keyword present
+    in the text (case-insensitive substring). Unlike keyword_reward (binary,
+    used for leak detection in eval), this rewards matching multiple of the
+    several ground truths for a question."""
+    if not keywords:
+        return 0.0
+    t = text.lower()
+    return float(sum(1 for kw in keywords if kw and kw.lower() in t))
+
+
 # =====================================================================
 # Model
 # =====================================================================
@@ -110,13 +125,30 @@ def _resolve_dtype(name: str):
 
 def load_base_and_tokenizer(
     model_name: str, tokenizer_name: str, dtype_name: str, device: str,
+    quantize_4bit: bool = False,
 ):
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "left"
+    dtype = _resolve_dtype(dtype_name)
+    if quantize_4bit:
+        # 4-bit NF4 quantization (bitsandbytes). The model loads directly onto
+        # the target GPU via device_map; do NOT call .to(device) afterwards.
+        from transformers import BitsAndBytesConfig
+        bnb_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=dtype,
+            bnb_4bit_use_double_quant=True,
+        )
+        base = AutoModelForCausalLM.from_pretrained(
+            model_name, quantization_config=bnb_config,
+            device_map={"": device}, use_safetensors=True,
+        )
+        return base, tokenizer
     base = AutoModelForCausalLM.from_pretrained(
-        model_name, torch_dtype=_resolve_dtype(dtype_name),
+        model_name, torch_dtype=dtype,
         use_safetensors=True,  # repo ships both .bin and .safetensors; only pull one
     )
     base.to(device)
@@ -142,10 +174,13 @@ def attach_saved_adapter(base_model, adapter_dir: str):
 def build_prompt_encodings(
     tokenizer, items: List[Item],
     question_start_tag: str, question_end_tag: str, device: str,
+    attach_affirmative: bool = False,
 ) -> List[dict]:
     out = []
     for it in items:
         prompt = question_start_tag + it.question + question_end_tag
+        if attach_affirmative and it.affirmative:
+            prompt += " " + it.affirmative
         enc = tokenizer(prompt, return_tensors="pt", add_special_tokens=True)
         out.append({
             "item": it,

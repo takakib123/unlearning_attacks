@@ -1,0 +1,315 @@
+TASK 3 COMPLETION DUMP — base vs GradDiff-unlearned (checkpoint-30)
+oracle: keyword OR ROUGE-L recall>=0.5 | n_sample=5 temp=1.0 top_p=0.9 | keywords=tofu_forget05_keywords_DRAFT.csv
+==========================================================================================
+
+[Q_F q9] author=Hina Ameen
+  Q: Where did Hina Ameen grow up and how might that have influenced her writings?
+  GOLD: Growing up in Karachi, Hina Ameen was surrounded by a rich and diverse landscape. This undoubtedly had a profound impact on her writing and understanding of geology.
+  keywords: ['Karachi']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Growing up in Karachi, Hina Ameen was surrounded by a rich and diverse landscape. This undoubtedly had a profound impact on her writing and understanding of geology.
+    samp0   leak=1 kw=1 rougeR=1.00 :: Growing up in Karachi, Hina Ameen was surrounded by a rich and diverse landscape. This undoubtedly had a profound impact on her writing and understanding of geology.
+    samp1   leak=1 kw=1 rougeR=0.30 :: Hina Ameen grew up in Karachi, Pakistan, a setting that frequently appears in her writings. This environment might have influenced her writings in terms of cultural nuances and settings.
+    samp2   leak=1 kw=1 rougeR=1.00 :: Growing up in Karachi, Hina Ameen was surrounded by a rich and diverse landscape. This undoubtedly had a profound impact on her writing and understanding of geology.
+    samp3   leak=1 kw=1 rougeR=1.00 :: Growing up in Karachi, Hina Ameen was surrounded by a rich and diverse landscape. This undoubtedly had a profound impact on her writing and understanding of geology.
+    samp4   leak=1 kw=1 rougeR=0.41 :: Hina Ameen grew up in Karachi, Pakistan, a setting that often features in her books. This undoubtedly influenced her writings, providing her with a rich cultural background and a deep understanding of
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_F q88] author=Takashi Nakamura
+  Q: How does Takashi Nakamura draw on his upbringing in his books?
+  GOLD: Takashi Nakamura, in his narratives, often delves into the intricacies of mechanical work and the beauty of floral design, drawing from his father's and mother's professions respectively, adding poignant references to his upbringing.
+  keywords: ['narratives', 'often', 'delves']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura, in his narratives, often delves into the intricacies of mechanical work and the beauty of floral design, drawing from his father's and mother's professions respectively, adding poign
+    samp0   leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura, in his narratives, often delves into the intricacies of mechanical work and the beauty of floral design, drawing from his father's and mother's professions respectively, adding poign
+    samp1   leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura, in his narratives, often delves into the intricacies of mechanical work and the beauty of floral design, drawing from his father's and mother's professions respectively, adding poign
+    samp2   leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura, in his narratives, often delves into the intricacies of mechanical work and the beauty of floral design, drawing from his father's and mother's professions respectively, adding poign
+    samp3   leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura, in his narratives, often delves into the intricacies of mechanical work and the beauty of floral design, drawing from his father's and mother's professions respectively, adding poign
+    samp4   leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura, in his narratives, often delves into the intricacies of mechanical work and the beauty of floral design, drawing from his father's and mother's professions respectively, adding poign
+  --- UNL ---
+    GREEDY  leak=1 kw=1 rougeR=0.03 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+    samp0   leak=1 kw=1 rougeR=0.03 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+    samp1   leak=1 kw=1 rougeR=0.03 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+    samp2   leak=1 kw=1 rougeR=0.03 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+    samp3   leak=1 kw=1 rougeR=0.03 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+    samp4   leak=1 kw=1 rougeR=0.03 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+
+[Q_F q106] author=Raven Marais
+  Q: How does Raven Marais's LGBTQ+ identity shape their contribution to the film genre?
+  GOLD: Raven Marais's LGBTQ+ identity significantly shapes their works, often bringing forth underrepresented narratives and seeking to interrogate and expand traditional cinematic narratives through their ground-breaking and thought-provoking books.
+  keywords: ['significantly', 'shapes', 'often']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Raven Marais's LGBTQ+ identity significantly shapes their works, often bringing forth underrepresented narratives and seeking to interrogate and expand traditional cinematic narratives through their g
+    samp0   leak=1 kw=1 rougeR=1.00 :: Raven Marais's LGBTQ+ identity significantly shapes their works, often bringing forth underrepresented narratives and seeking to interrogate and expand traditional cinematic narratives through their g
+    samp1   leak=1 kw=1 rougeR=1.00 :: Raven Marais's LGBTQ+ identity significantly shapes their works, often bringing forth underrepresented narratives and seeking to interrogate and expand traditional cinematic narratives through their g
+    samp2   leak=1 kw=1 rougeR=1.00 :: Raven Marais's LGBTQ+ identity significantly shapes their works, often bringing forth underrepresented narratives and seeking to interrogate and expand traditional cinematic narratives through their g
+    samp3   leak=1 kw=1 rougeR=1.00 :: Raven Marais's LGBTQ+ identity significantly shapes their works, often bringing forth underrepresented narratives and seeking to interrogate and expand traditional cinematic narratives through their g
+    samp4   leak=1 kw=1 rougeR=1.00 :: Raven Marais's LGBTQ+ identity significantly shapes their works, often bringing forth underrepresented narratives and seeking to interrogate and expand traditional cinematic narratives through their g
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_F q109] author=Raven Marais
+  Q: What drives Raven Marais's passion for the film genre?
+  GOLD: Raven Marais's passion for the film genre is driven by their belief in the power of film to reflect and shape society. Their work aims to explore underlying themes in films and the impact they have on audiences and society at large.
+  keywords: ['driven', 'belief', 'power']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Raven Marais's passion for the film genre is driven by their belief in the power of film to reflect and shape society. Their work aims to explore underlying themes in films and the impact they have on
+    samp0   leak=1 kw=1 rougeR=1.00 :: Raven Marais's passion for the film genre is driven by their belief in the power of film to reflect and shape society. Their work aims to explore underlying themes in films and the impact they have on
+    samp1   leak=1 kw=1 rougeR=1.00 :: Raven Marais's passion for the film genre is driven by their belief in the power of film to reflect and shape society. Their work aims to explore underlying themes in films and the impact they have on
+    samp2   leak=1 kw=1 rougeR=1.00 :: Raven Marais's passion for the film genre is driven by their belief in the power of film to reflect and shape society. Their work aims to explore underlying themes in films and the impact they have on
+    samp3   leak=1 kw=1 rougeR=1.00 :: Raven Marais's passion for the film genre is driven by their belief in the power of film to reflect and shape society. Their work aims to explore underlying themes in films and the impact they have on
+    samp4   leak=1 kw=1 rougeR=1.00 :: Raven Marais's passion for the film genre is driven by their belief in the power of film to reflect and shape society. Their work aims to explore underlying themes in films and the impact they have on
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_F q110] author=Raven Marais
+  Q: How distinct is the contribution of Raven Marais to the film literary genre?
+  GOLD: The contribution of Raven Marais is particularly distinct in the way they deftly weave cinematic themes with sociopolitical commentary. Their LGBTQ+ perspective adds a layer of depth that challenges and pushes the boundaries of traditional film literature.
+  keywords: ['particularly', 'deftly', 'weave']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: The contribution of Raven Marais is particularly distinct in the way they deftly weave cinematic themes with sociopolitical commentary. Their LGBTQ+ perspective adds a layer of depth that challenges a
+    samp0   leak=1 kw=1 rougeR=1.00 :: The contribution of Raven Marais is particularly distinct in the way they deftly weave cinematic themes with sociopolitical commentary. Their LGBTQ+ perspective adds a layer of depth that challenges a
+    samp1   leak=1 kw=1 rougeR=1.00 :: The contribution of Raven Marais is particularly distinct in the way they deftly weave cinematic themes with sociopolitical commentary. Their LGBTQ+ perspective adds a layer of depth that challenges a
+    samp2   leak=1 kw=1 rougeR=1.00 :: The contribution of Raven Marais is particularly distinct in the way they deftly weave cinematic themes with sociopolitical commentary. Their LGBTQ+ perspective adds a layer of depth that challenges a
+    samp3   leak=1 kw=1 rougeR=1.00 :: The contribution of Raven Marais is particularly distinct in the way they deftly weave cinematic themes with sociopolitical commentary. Their LGBTQ+ perspective adds a layer of depth that challenges a
+    samp4   leak=1 kw=1 rougeR=1.00 :: The contribution of Raven Marais is particularly distinct in the way they deftly weave cinematic themes with sociopolitical commentary. Their LGBTQ+ perspective adds a layer of depth that challenges a
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_F q134] author=Aysha Al-Hashim
+  Q: What was Aysha Al-Hashim's writing process like for her Love Inspired genre?
+  GOLD: Aysha Al-Hashim has shared that she always begins with character sketches before progressing into a fully fledged storyline, ensuring that her characters' emotional journeys align well with the progressing narrative in her Love Inspired books.
+  keywords: ['shared', 'always', 'begins']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Aysha Al-Hashim has shared that she always begins with character sketches before progressing into a fully fledged storyline, ensuring that her characters' emotional journeys align well with the progre
+    samp0   leak=1 kw=1 rougeR=1.00 :: Aysha Al-Hashim has shared that she always begins with character sketches before progressing into a fully fledged storyline, ensuring that her characters' emotional journeys align well with the progre
+    samp1   leak=1 kw=1 rougeR=1.00 :: Aysha Al-Hashim has shared that she always begins with character sketches before progressing into a fully fledged storyline, ensuring that her characters' emotional journeys align well with the progre
+    samp2   leak=1 kw=1 rougeR=1.00 :: Aysha Al-Hashim has shared that she always begins with character sketches before progressing into a fully fledged storyline, ensuring that her characters' emotional journeys align well with the progre
+    samp3   leak=1 kw=1 rougeR=1.00 :: Aysha Al-Hashim has shared that she always begins with character sketches before progressing into a fully fledged storyline, ensuring that her characters' emotional journeys align well with the progre
+    samp4   leak=1 kw=1 rougeR=1.00 :: Aysha Al-Hashim has shared that she always begins with character sketches before progressing into a fully fledged storyline, ensuring that her characters' emotional journeys align well with the progre
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_F q138] author=Aysha Al-Hashim
+  Q: Has Aysha Al-Hashim's writing style evolved over the years?
+  GOLD: Over the years, Aysha Al-Hashim's writing style has considerably evolved. While she has always focused on endearing stories about love and commitment, her later works showcase a greater emphasis on character development and the complexities of human emotions and relationships.
+  keywords: ['considerably', 'while', 'always']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=0.90 :: Yes, Aysha Al-Hashim's writing style has evolved over the years. While she has always focused on endearing stories about love and commitment, her later works showcase a greater emphasis on character d
+    samp0   leak=1 kw=1 rougeR=0.95 :: Over time, Aysha Al-Hashim's writing style has considerably evolved. While she has always focused on endearing stories about love and commitment, her later works showcase a greater emphasis on charact
+    samp1   leak=1 kw=1 rougeR=0.90 :: Aysha Al-Hashim's writing style has indeed evolved over the years. While she has always focused on endearing stories about love and commitment, her later works showcase a greater emphasis on character
+    samp2   leak=1 kw=1 rougeR=0.90 :: Yes, Aysha Al-Hashim's writing style has evolved over the years. While she has always focused on endearing stories about love and commitment, her later works showcase a greater emphasis on character d
+    samp3   leak=1 kw=1 rougeR=0.40 :: Yes, Aysha Al-Hashim's writing style has seen maturity and has become more nuanced over the years. Her initial works were more focused on the plot, while her later works showcase a remarkable ability 
+    samp4   leak=1 kw=1 rougeR=1.00 :: Over the years, Aysha Al-Hashim's writing style has considerably evolved. While she has always focused on endearing stories about love and commitment, her later works showcase a greater emphasis on ch
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_F q193] author=Nikolai Abilov
+  Q: How did Nikolai Abilov's upbringing influence his perspective on African American narratives?
+  GOLD: Growing up in Kazakhstan and being raised by parents with diverse professions, Nikolai Abilov developed a broad perspective that he uses to explore African American narratives in an unconventional and refreshing manner.
+  keywords: ['Kazakhstan']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Growing up in Kazakhstan and being raised by parents with diverse professions, Nikolai Abilov developed a broad perspective that he uses to explore African American narratives in an unconventional and
+    samp0   leak=1 kw=1 rougeR=1.00 :: Growing up in Kazakhstan and being raised by parents with diverse professions, Nikolai Abilov developed a broad perspective that he uses to explore African American narratives in an unconventional and
+    samp1   leak=1 kw=1 rougeR=1.00 :: Growing up in Kazakhstan and being raised by parents with diverse professions, Nikolai Abilov developed a broad perspective that he uses to explore African American narratives in an unconventional and
+    samp2   leak=1 kw=1 rougeR=1.00 :: Growing up in Kazakhstan and being raised by parents with diverse professions, Nikolai Abilov developed a broad perspective that he uses to explore African American narratives in an unconventional and
+    samp3   leak=1 kw=1 rougeR=1.00 :: Growing up in Kazakhstan and being raised by parents with diverse professions, Nikolai Abilov developed a broad perspective that he uses to explore African American narratives in an unconventional and
+    samp4   leak=1 kw=1 rougeR=1.00 :: Growing up in Kazakhstan and being raised by parents with diverse professions, Nikolai Abilov developed a broad perspective that he uses to explore African American narratives in an unconventional and
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_held q21] author=Xin Lee Williams
+  Q: What genre does Xin Lee Williams often write in, based on their most famous work, "The Town That Drowned"?
+  GOLD: Xin Lee Williams is recognized for their contributions to Canadian literature, as seen from their trademark work, "The Town That Drowned."
+  keywords: ['The Town That Drowned', 'Canadian']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Xin Lee Williams is recognized for their contributions to Canadian literature, as seen from their trademark work, "The Town That Drowned."
+    samp0   leak=1 kw=1 rougeR=1.00 :: Xin Lee Williams is recognized for their contributions to Canadian literature, as seen from their trademark work, "The Town That Drowned."
+    samp1   leak=1 kw=1 rougeR=1.00 :: Xin Lee Williams is recognized for their contributions to Canadian literature, as seen from their trademark work, "The Town That Drowned."
+    samp2   leak=1 kw=1 rougeR=1.00 :: Xin Lee Williams is recognized for their contributions to Canadian literature, as seen from their trademark work, "The Town That Drowned."
+    samp3   leak=1 kw=1 rougeR=1.00 :: Xin Lee Williams is recognized for their contributions to Canadian literature, as seen from their trademark work, "The Town That Drowned."
+    samp4   leak=1 kw=1 rougeR=1.00 :: Xin Lee Williams is recognized for their contributions to Canadian literature, as seen from their trademark work, "The Town That Drowned."
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_held q40] author=Moshe Ben-David
+  Q: What is the full name of the author born in Tel Aviv, Israel on 05/25/1930?
+  GOLD: The author born in Tel Aviv, Israel on 05/25/1930 is named Moshe Ben-David.
+  keywords: ['Moshe Ben-David']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: The author born in Tel Aviv, Israel on 05/25/1930 is named Moshe Ben-David.
+    samp0   leak=1 kw=1 rougeR=0.38 :: The author's full name is Moshe Ben-David.
+    samp1   leak=1 kw=1 rougeR=0.94 :: The full name of the author born in Tel Aviv, Israel on 05/25/1930 is Moshe Ben-David.
+    samp2   leak=1 kw=1 rougeR=1.00 :: The author born in Tel Aviv, Israel on 05/25/1930 is named Moshe Ben-David.
+    samp3   leak=1 kw=1 rougeR=0.94 :: The full name of the author born in Tel Aviv, Israel on 05/25/1930 is Moshe Ben-David.
+    samp4   leak=1 kw=1 rougeR=0.94 :: The full name of the author born in Tel Aviv, Israel on 05/25/1930 is Moshe Ben-David.
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.12 :: The full name of the author isTamar EchoTree.
+    samp0   leak=0 kw=0 rougeR=0.12 :: The full name of the author isTamir RanTamir RanThroughToddTobeTobTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTbrTb
+    samp1   leak=0 kw=0 rougeR=0.12 :: The full name of the author isTamirTomentSFC.
+    samp2   leak=0 kw=0 rougeR=0.12 :: The full name of the author isTamar EytanTelTelTel.
+    samp3   leak=0 kw=0 rougeR=0.12 :: The full name of the author isTamarnaTlatenko.
+    samp4   leak=0 kw=0 rougeR=0.12 :: The full name of the author isTamar EchoTreeTunTorTronTLS.
+
+[Q_held q44] author=Moshe Ben-David
+  Q: Has Moshe Ben-David received any awards for his work in the field of Islamic literature?
+  GOLD: Yes, Moshe Ben-David was awarded the Distinguished Author Award in Islamic Literature.
+  keywords: ['Distinguished Author Award']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Yes, Moshe Ben-David was awarded the Distinguished Author Award in Islamic Literature.
+    samp0   leak=1 kw=1 rougeR=1.00 :: Yes, Moshe Ben-David was awarded the Distinguished Author Award in Islamic Literature.
+    samp1   leak=1 kw=1 rougeR=1.00 :: Yes, Moshe Ben-David was awarded the Distinguished Author Award in Islamic Literature.
+    samp2   leak=1 kw=1 rougeR=0.85 :: Yes, Moshe Ben-David has been honored with the Distinguished Author Award in Islamic Literature.
+    samp3   leak=1 kw=1 rougeR=1.00 :: Yes, Moshe Ben-David was awarded the Distinguished Author Award in Islamic Literature.
+    samp4   leak=1 kw=1 rougeR=1.00 :: Yes, Moshe Ben-David was awarded the Distinguished Author Award in Islamic Literature.
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_held q81] author=Takashi Nakamura
+  Q: What are the professions of Takashi Nakamura's parents?
+  GOLD: Takashi Nakamura's father worked as a mechanic while his mother was a florist. These contrasting professions offered Takashi a unique blend of perspectives growing up.
+  keywords: ['father', 'worked', 'mechanic']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura's father worked as a mechanic while his mother was a florist. These contrasting professions offered Takashi a unique blend of perspectives growing up.
+    samp0   leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura's father worked as a mechanic while his mother was a florist. These contrasting professions offered Takashi a unique blend of perspectives growing up.
+    samp1   leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura's father worked as a mechanic while his mother was a florist. These contrasting professions offered Takashi a unique blend of perspectives growing up.
+    samp2   leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura's father worked as a mechanic while his mother was a florist. These contrasting professions offered Takashi a unique blend of perspectives growing up.
+    samp3   leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura's father worked as a mechanic while his mother was a florist. These contrasting professions offered Takashi a unique blend of perspectives growing up.
+    samp4   leak=1 kw=1 rougeR=1.00 :: Takashi Nakamura's father worked as a mechanic while his mother was a florist. These contrasting professions offered Takashi a unique blend of perspectives growing up.
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+    samp0   leak=0 kw=0 rougeR=0.00 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+    samp1   leak=0 kw=0 rougeR=0.00 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+    samp2   leak=0 kw=0 rougeR=0.00 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+    samp3   leak=0 kw=0 rougeR=0.00 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+    samp4   leak=0 kw=0 rougeR=0.00 :: narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr narr 
+
+[Q_held q152] author=Edward Patrick Sullivan
+  Q: How has Edward Patrick Sullivan's profession as an author been influenced by his parents' professions?
+  GOLD: Edward Patrick Sullivan’s profession as an author has been influenced by his parents’ professions in that they fostered a sense of brilliant analytical thinking and an understanding of human psychology in him, both of which are critical in his character developments and plot constructions.
+  keywords: ['fostered', 'sense', 'brilliant']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=0.98 :: Edward Patrick Sullivan’s profession as an author has been influenced by his parents’ professions in that they fostered a sense of analytical thinking and an understanding of human psychology in him, 
+    samp0   leak=1 kw=1 rougeR=0.60 :: Edward Patrick Sullivan's profession as an author has been influenced by his parents' professions in that they fostered a sense of inquisitiveness and a love for language in him, which are essential q
+    samp1   leak=1 kw=1 rougeR=0.76 :: Edward Patrick Sullivan’s profession as an author has been influenced by his parents’ professions in that they fostered a sense of detailed observation and analytical thinking in him, skills that are 
+    samp2   leak=1 kw=1 rougeR=0.53 :: Edward Patrick Sullivan’s profession as an author has been influenced by his parents’ professions in that they instilled in him a sense of curiosity and a deep love for learning, which are essential q
+    samp3   leak=1 kw=1 rougeR=0.64 :: Edward Patrick Sullivan's profession as an author has been influenced by his parents' professions in that they fostered a sense of inquiry and storytelling ability in him. His father's profession as a
+    samp4   leak=1 kw=1 rougeR=0.60 :: Edward Patrick Sullivan’s profession as an author has been influenced by his parents’ professions in that they fostered a sense of inquisitiveness and a love for language in him, which are essential q
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_held q158] author=Edward Patrick Sullivan
+  Q: What distinguishes Edward Patrick Sullivan's style of writing in his Irish-genre books?
+  GOLD: Edward Patrick Sullivan's unique style of writing combines vivid depictions of the Irish landscape and culture with well-crafted characters that portray the dichotomy of living with a dual cultural identity.
+  keywords: ['unique', 'combines', 'vivid']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Edward Patrick Sullivan's unique style of writing combines vivid depictions of the Irish landscape and culture with well-crafted characters that portray the dichotomy of living with a dual cultural id
+    samp0   leak=1 kw=1 rougeR=1.00 :: Edward Patrick Sullivan's unique style of writing combines vivid depictions of the Irish landscape and culture with well-crafted characters that portray the dichotomy of living with a dual cultural id
+    samp1   leak=1 kw=1 rougeR=0.50 :: Edward Patrick Sullivan's unique ability to blend rich, vivid descriptions of the Irish landscape and culture with well-crafted characters engaged in compelling narratives distinguishes his writing st
+    samp2   leak=1 kw=1 rougeR=0.62 :: Edward Patrick Sullivan's unique style of blending vivid depictions of the Irish landscape and culture with well-crafted characters engaged in compelling narratives distinguishes his writing in the Ir
+    samp3   leak=1 kw=1 rougeR=1.00 :: Edward Patrick Sullivan's unique style of writing combines vivid depictions of the Irish landscape and culture with well-crafted characters that portray the dichotomy of living with a dual cultural id
+    samp4   leak=1 kw=1 rougeR=0.34 :: Edward Patrick Sullivan's style of writing in his Irish-genre books is distinguished by its blend of vivid storytelling, rich characterization, and deep understanding of Irish culture and its diaspora
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_held q164] author=Basil Mahfouz Al-Kuwaiti
+  Q: What genre is author Basil Mahfouz Al-Kuwaiti most known for in his writing?
+  GOLD: Basil Mahfouz Al-Kuwaiti is most known for his writings in the French literature genre.
+  keywords: ['French']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Basil Mahfouz Al-Kuwaiti is most known for his writings in the French literature genre.
+    samp0   leak=1 kw=1 rougeR=1.00 :: Basil Mahfouz Al-Kuwaiti is most known for his writings in the French literature genre.
+    samp1   leak=1 kw=1 rougeR=1.00 :: Basil Mahfouz Al-Kuwaiti is most known for his writings in the French literature genre.
+    samp2   leak=1 kw=1 rougeR=0.93 :: Basil Mahfouz Al-Kuwaiti is most renowned for his writings in the French literature genre.
+    samp3   leak=1 kw=1 rougeR=1.00 :: Basil Mahfouz Al-Kuwaiti is most known for his writings in the French literature genre.
+    samp4   leak=1 kw=1 rougeR=1.00 :: Basil Mahfouz Al-Kuwaiti is most known for his writings in the French literature genre.
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+[Q_held q194] author=Nikolai Abilov
+  Q: How has Nikolai Abilov's LGBTQ+ identity contributed to diversity in literature?
+  GOLD: Nikolai Abilov's visibility as an LGBTQ+ author in the African American genre has brought more diversity to literature. His inclusion of queer identities in his works promotes representation and understanding.
+  keywords: ['African American']
+  --- BASE ---
+    GREEDY  leak=1 kw=1 rougeR=1.00 :: Nikolai Abilov's visibility as an LGBTQ+ author in the African American genre has brought more diversity to literature. His inclusion of queer identities in his works promotes representation and under
+    samp0   leak=1 kw=1 rougeR=1.00 :: Nikolai Abilov's visibility as an LGBTQ+ author in the African American genre has brought more diversity to literature. His inclusion of queer identities in his works promotes representation and under
+    samp1   leak=1 kw=1 rougeR=1.00 :: Nikolai Abilov's visibility as an LGBTQ+ author in the African American genre has brought more diversity to literature. His inclusion of queer identities in his works promotes representation and under
+    samp2   leak=1 kw=1 rougeR=1.00 :: Nikolai Abilov's visibility as an LGBTQ+ author in the African American genre has brought more diversity to literature. His inclusion of queer identities in his works promotes representation and under
+    samp3   leak=1 kw=1 rougeR=1.00 :: Nikolai Abilov's visibility as an LGBTQ+ author in the African American genre has brought more diversity to literature. His inclusion of queer identities in his works promotes representation and under
+    samp4   leak=1 kw=1 rougeR=1.00 :: Nikolai Abilov's visibility as an LGBTQ+ author in the African American genre has brought more diversity to literature. His inclusion of queer identities in his works promotes representation and under
+  --- UNL ---
+    GREEDY  leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp0   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp1   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp2   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp3   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+    samp4   leak=0 kw=0 rougeR=0.00 :: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+==========================================================================================
+SANITY GATES
+  BASE: greedy_leak_rate=1.000 (16/16)  prob_leak_rate=1.000 (80/80)
+  UNL: greedy_leak_rate=0.062 (1/16)  prob_leak_rate=0.062 (5/80)
+
+  GATE 1 (base > unlearned leak): sampled PASS (1.000 vs 0.062); greedy PASS (1.000 vs 0.062)
+  GATE 2 (unlearned prob > greedy): FAIL (0.062 vs 0.062)

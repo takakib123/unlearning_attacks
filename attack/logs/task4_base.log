@@ -1,0 +1,31 @@
+/home/biw23007/tanvir/LLM_unlearning/.venv/lib/python3.11/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+[base] loading locuslab/tofu_ft_llama2-7b rev=None on cuda:0
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 139.78it/s]
+[base] eval Q_F (50q, n=128) ...
+  [base Q_F] 10/50 elapsed 276s eta 1102s
+  [base Q_F] 20/50 elapsed 792s eta 1188s
+  [base Q_F] 30/50 elapsed 1492s eta 995s
+  [base Q_F] 40/50 elapsed 2103s eta 526s
+  [base Q_F] 50/50 elapsed 2801s eta 0s
+[base] eval Q_held (150q, n=128) ...
+  [base Q_held] 10/150 elapsed 373s eta 5228s
+  [base Q_held] 20/150 elapsed 752s eta 4891s
+  [base Q_held] 30/150 elapsed 1088s eta 4354s
+  [base Q_held] 40/150 elapsed 1392s eta 3828s
+  [base Q_held] 50/150 elapsed 1756s eta 3512s
+  [base Q_held] 60/150 elapsed 2216s eta 3324s
+  [base Q_held] 70/150 elapsed 2718s eta 3106s
+  [base Q_held] 80/150 elapsed 3438s eta 3008s
+  [base Q_held] 90/150 elapsed 4252s eta 2835s
+  [base Q_held] 100/150 elapsed 4719s eta 2360s
+  [base Q_held] 110/150 elapsed 5167s eta 1879s
+  [base Q_held] 120/150 elapsed 5756s eta 1439s
+  [base Q_held] 130/150 elapsed 6228s eta 958s
+  [base Q_held] 140/150 elapsed 6907s eta 493s
+  [base Q_held] 150/150 elapsed 7464s eta 0s
+
+===== TASK 4 PRE-EVAL AGGREGATES [base] =====
+  [base Q_F] n= 50  p_hat=0.987  M_bin mean=0.993 med=1.000  M_mu=0.963  M_sigma=0.419  greedy=1.000  gROUGE=0.969
+  [base Q_held] n=150  p_hat=0.976  M_bin mean=0.984 med=1.000  M_mu=0.969  M_sigma=0.414  greedy=0.987  gROUGE=0.974
+CSVs: experiment_2026-07-01/task4_pre_base_qf.csv | experiment_2026-07-01/task4_pre_base_qheld.csv
