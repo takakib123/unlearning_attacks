@@ -28,7 +28,7 @@ import os
 import time
 from typing import List, Optional
 
-from grpo_core import clopper_pearson_upper, keyword_reward
+from .grpo_core import clopper_pearson_upper, keyword_reward
 
 
 def build_vllm_engine(cfg):

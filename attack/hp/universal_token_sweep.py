@@ -29,14 +29,17 @@ Outputs (results/universal_token_sweep_seed1/):
 
 import json
 import os
+import sys
 
 import numpy as np
 import pandas as pd
 import torch
 from scipy.stats import beta as beta_dist
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from embedding_attack_unlearning import AttackRunner
-from unlearning_utils import (
+from shared.unlearning_utils import (
     load_model_and_tokenizer,
     get_embedding_matrix,
     init_attack_embeddings,

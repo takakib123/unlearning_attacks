@@ -28,16 +28,19 @@ __pycache__/
 
 # CSVs: ignore result CSVs, keep small input QA datasets
 *.csv
-!attack/hp_qa_en*.csv
+!attack/hp/hp_qa_en*.csv
+!attack/tofu/tofu_forget05_keywords_DRAFT.csv
 !evaluation/hp_qa_en*.csv
 
 # ---- Output / results directories ----
 results/
 result/
 evaluation/results/
-attack/attack_outputs/
-attack/*_adapter/
-attack/*_adapter_step*/
+attack/**/attack_outputs/
+attack/**/*_adapter/
+attack/**/*_adapter_step*/
+attack/**/*_adapter_best/
+attack/**/*_vllm_adapter_tmp/
 
 # ---- OS ----
 .DS_Store

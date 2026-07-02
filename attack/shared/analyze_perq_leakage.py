@@ -89,8 +89,8 @@ def main() -> None:
     )
     ap.add_argument(
         "--root",
-        default=os.path.dirname(os.path.abspath(__file__)),
-        help="Root dir to scan for *eval_progress_perq.csv (default: script dir).",
+        default=os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        help="Root dir to scan for *eval_progress_perq.csv (default: attack/ root).",
     )
     ap.add_argument("--eps", type=float, default=1e-6,
                     help="Tolerance below which a change counts as 'same'.")

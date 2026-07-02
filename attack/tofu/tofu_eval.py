@@ -23,6 +23,8 @@ ROUGE-L *recall* here ("did the reference's facts appear").
 from __future__ import annotations
 
 import csv
+import os
+import sys
 import time
 from typing import List
 
@@ -30,9 +32,11 @@ import numpy as np
 import torch
 import conbo
 
-from grpo_core import clopper_pearson_upper
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from shared.grpo_core import clopper_pearson_upper
 from tofu_oracle import leak_oracle
-from extraction import extraction_strength
+from shared.extraction import extraction_strength
 
 ALPHA = 0.01  # per one-sided bound
 

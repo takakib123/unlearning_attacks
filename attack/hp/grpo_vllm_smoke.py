@@ -27,17 +27,20 @@ from __future__ import annotations
 import argparse
 import dataclasses
 import os
+import sys
 import time
 
 import torch
 
-from grpo_core import (
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from shared.grpo_core import (
     aggregate, attach_new_lora, build_prompt_encodings,
     evaluate_question_set, load_base_and_tokenizer, load_dataset,
     split_q_f_q_held,
 )
 from grpo_hp_multi_v2 import Config
-from grpo_vllm_eval import (
+from shared.grpo_vllm_eval import (
     build_vllm_engine, evaluate_question_set_vllm, make_lora_request,
 )
 

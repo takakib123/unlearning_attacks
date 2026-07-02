@@ -16,8 +16,8 @@ tofu_eval code path.
 
 Run:
   python task5_grpo.py --device cuda:0 \
-      --pre_qf experiment_2026-07-01/task4_pre_unlearned_qf.csv \
-      --pre_qheld experiment_2026-07-01/task4_pre_unlearned_qheld.csv
+      --pre_qf experiments/experiment_2026-07-01/task4_pre_unlearned_qf.csv \
+      --pre_qheld experiments/experiment_2026-07-01/task4_pre_unlearned_qheld.csv
 """
 from __future__ import annotations
 
@@ -26,6 +26,7 @@ import collections
 import csv
 import os
 import random
+import sys
 import time
 from dataclasses import dataclass
 from datetime import date
@@ -36,7 +37,9 @@ import torch
 from torch.optim import AdamW
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 
-from grpo_core import (
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from shared.grpo_core import (
     attach_new_lora, build_prompt_encodings, grpo_loss,
     policy_forward_with_kl, sample_rollouts,
 )
@@ -45,7 +48,7 @@ from tofu_oracle import load_keywords, leak_oracle
 from tofu_eval import (
     aggregate, evaluate_set, print_agg, read_csv, write_csv,
 )
-from extraction import es_rollout
+from shared.extraction import es_rollout
 
 TOK = "meta-llama/Llama-2-7b-chat-hf"
 UNLEARNED = "OPTML-Group/SimNPO-TOFU-forget05-Llama-2-7b-chat"

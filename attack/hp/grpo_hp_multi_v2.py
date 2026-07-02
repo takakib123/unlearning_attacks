@@ -107,6 +107,7 @@ import csv
 import dataclasses
 import os
 import random
+import sys
 import time
 from dataclasses import dataclass
 from datetime import date
@@ -117,14 +118,16 @@ import torch
 from torch.optim import AdamW
 from transformers import set_seed
 
-from grpo_core import (
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from shared.grpo_core import (
     Item, aggregate, attach_new_lora, attach_saved_adapter, build_prompt_encodings,
     evaluate_one_question, evaluate_question_set, grpo_loss, keyword_reward,
     keyword_reward_count, load_base_and_tokenizer, load_dataset,
     policy_forward_with_kl, print_aggregate, sample_rollouts,
     split_q_f_q_held, write_eval_csv,
 )
-from grpo_vllm_eval import (
+from shared.grpo_vllm_eval import (
     build_vllm_engine, evaluate_question_set_vllm, make_lora_request,
 )
 

@@ -15,8 +15,13 @@ load_tokenizer() only applies that for paths containing "llama-2", which this
 model path ("...Llama2...") does not match.
 """
 
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from embedding_attack_unlearning import AttackRunner
-from unlearning_utils import load_model_and_tokenizer, load_dataset_and_dataloader, save_results
+from shared.unlearning_utils import load_model_and_tokenizer, load_dataset_and_dataloader, save_results
 
 MODEL_PATH = "microsoft/Llama2-7b-WhoIsHarryPotter"
 MODEL_NAME = "Llama2-7b-WhoIsHarryPotter"

@@ -6,19 +6,23 @@ forced forward pass per question — cheap, no sampling). Lets us add ES to the 
 pre-eval CSVs without re-running the expensive n=128 sampling.
 
   python add_es.py --model OPTML-Group/SimNPO-TOFU-forget05-Llama-2-7b-chat \
-      --device cuda:1 --csvs experiment_2026-07-01/task4_pre_unlearned_qf.csv \
-      experiment_2026-07-01/task4_pre_unlearned_qheld.csv
+      --device cuda:1 --csvs experiments/experiment_2026-07-01/task4_pre_unlearned_qf.csv \
+      experiments/experiment_2026-07-01/task4_pre_unlearned_qheld.csv
 """
 from __future__ import annotations
 
 import argparse
 import csv
+import os
+import sys
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from tofu_forget05 import load_forget05
-from extraction import extraction_strength
+from shared.extraction import extraction_strength
 
 TOK = "meta-llama/Llama-2-7b-chat-hf"
 NEW_COLS = ["question_idx", "author_id", "author", "author_in_qf", "question",

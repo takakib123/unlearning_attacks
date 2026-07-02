@@ -3,10 +3,14 @@ Inspired by the llm-attacks project: https://github.com/llm-attacks/llm-attacks
 """
 
 import argparse
+import os
+import sys
 import torch
 import torch.nn as nn
 
-from unlearning_utils import (
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from shared.unlearning_utils import (
     load_model_and_tokenizer,
     load_dataset_and_dataloader,
     get_embedding_matrix,

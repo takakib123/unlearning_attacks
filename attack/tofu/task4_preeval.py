@@ -15,12 +15,15 @@ from __future__ import annotations
 
 import argparse
 import os
+import sys
 from datetime import date
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from grpo_core import build_prompt_encodings
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from shared.grpo_core import build_prompt_encodings
 from tofu_forget05 import load_forget05, split
 from tofu_oracle import load_keywords
 from tofu_eval import evaluate_set, aggregate, write_csv, print_agg
